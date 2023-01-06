@@ -3,24 +3,24 @@
 </script>
 
 <template>
-  <header
-    class="sticky px-2 top-0 left-0 z-20 bg-transparent backdrop-filter backdrop-blur-8px backdrop-saturate-[180%] flex items-center justify-between py-4"
-  >
-    <div>
-      <NuxtLink :aria-label="app.headerTitle" to="/">
-        <div class="flex items-center justify-between">
-          <div class="mr-3">N</div>
-          <div class="hidden h-6 text-2xl font-semibold sm:block">{{ app.headerTitle }}</div>
-        </div>
-      </NuxtLink>
-    </div>
-    <div class="flex items-center text-base leading-5">
-      <div class="hidden sm:block">
-        <NuxtLink class="font-medium text-gray-900 rounded dark:text-gray-100 sm:p-4" href="/blog"> Blog </NuxtLink>
-        <NuxtLink class="font-medium text-gray-900 rounded dark:text-gray-100 sm:p-4" href="/tags"> Tags </NuxtLink>
-        <NuxtLink class="font-medium text-gray-900 rounded dark:text-gray-100 sm:p-4" href="/about"> About </NuxtLink>
+  <header class="bg-transparent top-0 left-0 z-20 sticky backdrop-filter backdrop-blur-8px backdrop-saturate-[180%]">
+    <div class="flex py-5 items-center justify-between mx-auto max-w-6xl px-4 sm:px-6 xl:max-w-8xl xl:px-0">
+      <div>
+        <NuxtLink :aria-label="app.headerTitle" to="/">
+          <div class="flex items-center justify-between">
+            <div class="mr-3">N</div>
+            <div class="font-semibold h-6 text-2xl hidden sm:block">{{ app.headerTitle }}</div>
+          </div>
+        </NuxtLink>
       </div>
-      <ThemeSwitch />
+      <div class="flex text-base leading-5 items-center">
+        <div class="hidden sm:block">
+          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/blog"> Blog </NuxtLink>
+          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/tags"> Tags </NuxtLink>
+          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/about"> About </NuxtLink>
+        </div>
+        <ThemeSwitch />
+      </div>
     </div>
   </header>
 </template>

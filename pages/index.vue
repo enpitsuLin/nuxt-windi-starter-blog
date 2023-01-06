@@ -3,7 +3,7 @@
 </script>
 <template>
   <SEO :title="app.title" :description="app.description" />
-  <section>
+  <section class="h-[120vh]">
     <h2>/</h2>
     <ul>
       <li>
