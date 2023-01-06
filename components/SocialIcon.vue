@@ -27,7 +27,7 @@
     <span class="sr-only">{{ type }}</span>
     <component
       :is="components[type]"
-      class="fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-6 w-6"
+      class="fill-current text-gray-700 hover:text-primary dark:text-gray-200 h-6 w-6"
     />
   </a>
 </template>

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   useHead({
     bodyAttrs: {
-      class: 'bg-white nuxt-scrollbars text-black antialiased dark:bg-gray-900 dark:text-white'
+      class: 'bg-white scrollbars text-black antialiased dark:bg-gray-900 dark:text-white'
     },
     htmlAttrs: {
-      class: 'nuxt-scrollbars'
+      class: 'scrollbars'
     }
   });
 </script>
@@ -16,19 +16,20 @@
   </div>
 </template>
 <style>
-  .nuxt-scrollbars ::-webkit-scrollbar {
+  .scrollbars ::-webkit-scrollbar {
     @apply bg-transparent h-[0.6em] w-[0.6em];
   }
-  .nuxt-scrollbars ::-webkit-scrollbar-thumb {
-    @apply rounded-[0.6em] bg-light-100;
+  .scrollbars ::-webkit-scrollbar-thumb {
+    @apply rounded-[0.6em] bg-zinc-300 hover:bg-zinc-200;
   }
-  .nuxt-scrollbars ::-webkit-scrollbar-track {
-    @apply bg-light-50;
+  .scrollbars ::-webkit-scrollbar-track {
+    @apply bg-zinc-100;
   }
-  .dark.nuxt-scrollbars ::-webkit-scrollbar-thumb {
-    @apply bg-dark-500;
+
+  .dark.scrollbars ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-700 hover:bg-zinc-600;
   }
-  .dark.nuxt-scrollbars ::-webkit-scrollbar-track {
-    @apply bg-gray-600;
+  .dark.scrollbars ::-webkit-scrollbar-track {
+    @apply bg-zinc-800;
   }
 </style>
