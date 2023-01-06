@@ -14,10 +14,16 @@
         </NuxtLink>
       </div>
       <div class="flex text-base leading-5 items-center">
-        <div class="hidden sm:block">
-          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/blog"> Blog </NuxtLink>
-          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/tags"> Tags </NuxtLink>
-          <NuxtLink class="rounded font-medium text-gray-900 sm:p-4 dark:text-gray-100" href="/about"> About </NuxtLink>
+        <div class="hidden sm:block space-x-4">
+          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/blog">
+            Blog
+          </NuxtLink>
+          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/tags">
+            Tags
+          </NuxtLink>
+          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/about">
+            About
+          </NuxtLink>
         </div>
         <ThemeSwitch />
       </div>
