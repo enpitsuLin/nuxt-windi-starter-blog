@@ -1,4 +1,8 @@
+<script setup lang="ts">
+  const app = useAppConfig();
+</script>
 <template>
+  <SEO :title="app.title" :description="app.description" />
   <section>
     <h2>/</h2>
     <ul>
