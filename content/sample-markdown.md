@@ -23,18 +23,18 @@ A sample post with markdown.
 > Quote
 > Nuxt is an open-source framework under MIT license for building modern and performant web applications that can be deployed on any platform running JavaScript.
 
-Sample of inline highlighting `sum = parseInt(num1) + parseInt(num2)`
+Sample of inline highlighting `sum = parseInt(num1) + parseInt(num2)`{lang="js"}
 
 ## Code Blocks
 
 Some Javascript code
 
 ```javascript
-var num1, num2, sum
-num1 = prompt('Enter first number')
-num2 = prompt('Enter second number')
-sum = parseInt(num1) + parseInt(num2) // "+" means "add"
-alert('Sum = ' + sum) // "+" means combine into a string
+var num1, num2, sum;
+num1 = prompt('Enter first number');
+num2 = prompt('Enter second number');
+sum = parseInt(num1) + parseInt(num2); // "+" means "add"
+alert('Sum = ' + sum); // "+" means combine into a string
 ```
 
 Some Python code 🐍
@@ -70,3 +70,15 @@ for index, fibonacci_number in zip(range(10), fib()):
 | ----- | ----- |
 | 1-1   | 2-1   |
 | 1-2   | 2-2   |
+
+::code-group
+
+```sh [npm]
+npm install -g nuxi
+```
+
+```sh [pnpm]
+pnpm add -g nuxi
+```
+
+::
