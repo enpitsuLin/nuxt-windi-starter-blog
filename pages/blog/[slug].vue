@@ -1,9 +1,9 @@
 <script setup lang="ts">
   const route = useRoute();
+  const slug = route.params.slug as string;
 </script>
 <template>
-  <section>
-    <h2>/blog/[slug]</h2>
-    <code>{{ JSON.stringify(route.params) }}</code>
+  <section class="prose dark:prose-dark">
+    <ContentDoc :path="slug" />
   </section>
 </template>

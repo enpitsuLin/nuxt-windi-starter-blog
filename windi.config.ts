@@ -3,6 +3,7 @@ import defaultTheme from 'windicss/defaultTheme';
 import colors from 'windicss/colors';
 import forms from 'windicss/plugin/forms';
 import typography from 'windicss/plugin/typography';
+import aspectRadio from 'windicss/plugin/aspect-ratio';
 
 export default defineConfig({
   darkMode: 'class',
@@ -23,15 +24,16 @@ export default defineConfig({
       },
       colors: {
         primary: '#00DC82',
+        'primary-gray': '#18181B',
         zinc: colors.zinc,
-        gray: colors.neutral //'#18181B'
+        gray: colors.neutral
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.teal.500'),
+              color: theme('colors.primary-gray'),
               '&:hover': {
                 color: `${theme('colors.teal.600')} !important`
               },
@@ -39,26 +41,20 @@ export default defineConfig({
             },
             h1: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900')
+              letterSpacing: theme('letterSpacing.tight')
             },
             h2: {
               fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.900')
+              letterSpacing: theme('letterSpacing.tight')
             },
             h3: {
-              fontWeight: '600',
-              color: theme('colors.gray.900')
-            },
-            'h4,h5,h6': {
-              color: theme('colors.gray.900')
+              fontWeight: '600'
             },
             pre: {
               backgroundColor: theme('colors.gray.800')
             },
             code: {
-              color: theme('colors.pink.500'),
+              color: theme('colors.primary'),
               backgroundColor: theme('colors.gray.100'),
               paddingLeft: '4px',
               paddingRight: '4px',
@@ -99,7 +95,7 @@ export default defineConfig({
           css: {
             color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.teal.500'),
+              color: theme('colors.white'),
               '&:hover': {
                 color: `${theme('colors.teal.400')} !important`
               },
@@ -159,5 +155,5 @@ export default defineConfig({
       })
     }
   },
-  plugins: [forms, typography()]
+  plugins: [forms, typography(), aspectRadio]
 });
