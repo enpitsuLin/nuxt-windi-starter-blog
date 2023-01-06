@@ -7,8 +7,17 @@ import aspectRadio from 'windicss/plugin/aspect-ratio';
 export default defineConfig({
   darkMode: 'class',
   shortcuts: {
-    'nav-button':
-      'text-sm lg:text-base rounded leading-5 px-4 py-2 font-medium text-gray-600 dark:text-gray-300 hover:(dark:text-gray-50 text-gray-900 bg-gray-900) focus:(dark:text-gray-50 text-gray-900)'
+    'nav-button': {
+      '@apply':
+        'text-sm lg:text-base rounded leading-5 px-4 py-2 font-medium text-gray-600 dark:text-gray-300 focus:(dark:text-gray-50 text-gray-900)',
+      '&:hover': {
+        '@apply': 'dark:(text-gray-50 bg-gray-900) text-gray-900 bg-gray-100'
+      },
+      '&.active': {
+        'box-shadow': 'inset 0 2px 4px 0 rgb(0 0 0 / 5%)',
+        '@apply': 'bg-gray-100'
+      }
+    }
   },
   theme: {
     extend: {
@@ -59,7 +68,7 @@ export default defineConfig({
           800: '#6D5605',
           900: '#362B03'
         },
-        gray: colors.gray
+        gray: colors.zinc
       }
     }
   },

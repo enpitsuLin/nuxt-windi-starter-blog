@@ -1,5 +1,10 @@
 <script lang="ts" setup>
   const app = useAppConfig();
+  const NavLink = defineNuxtLink({
+    componentName: 'NavLink',
+    exactActiveClass: '',
+    activeClass: 'active'
+  });
 </script>
 
 <template>
@@ -15,15 +20,15 @@
       </div>
       <div class="flex text-base leading-5 items-center">
         <div class="hidden sm:block space-x-4">
-          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/blog">
+          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/blog">
             Blog
-          </NuxtLink>
-          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/tags">
+          </NavLink>
+          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/tags">
             Tags
-          </NuxtLink>
-          <NuxtLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" href="/about">
+          </NavLink>
+          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/about">
             About
-          </NuxtLink>
+          </NavLink>
         </div>
         <ThemeSwitch />
       </div>
