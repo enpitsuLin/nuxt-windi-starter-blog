@@ -49,3 +49,13 @@ def fib():
 for index, fibonacci_number in zip(range(10), fib()):
      print('{i:3}: {f:3}'.format(i=index, f=fibonacci_number))
 ```
+
+## List
+
+1. first
+2. second
+3. third
+
+- first
+- second
+- third

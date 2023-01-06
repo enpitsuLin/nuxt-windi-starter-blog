@@ -10,5 +10,6 @@ export default defineNuxtConfig({
       Inter: true
     }
   },
-  content: {}
+  content: {},
+  extends: '@nuxt-themes/typography'
 });

@@ -4,7 +4,7 @@
   const props = defineProps<{ post: PostContent }>();
   const router = useRouter();
   const navigate = () => {
-    router.push({ name: 'blog-slug', params: { slug: props.post._path } });
+    router.push({ name: 'blog-slug', params: { slug: props.post._path?.slice(1) } });
   };
   onMounted(() => {
     console.log(props.post);
@@ -13,10 +13,10 @@
 
 <template>
   <article
-    class="rounded-lg cursor-pointer flex flex-col shadow overflow-hidden md:flex-row dark:bg-[#0C0C0D] dark:shadow-dark-700 hover:bg-gray-50 dark:hover:bg-zinc-900"
+    class="rounded-lg cursor-pointer flex flex-col shadow overflow-hidden md:flex-row dark:bg-[#0C0C0D] dark:shadow-dark-700 hover:bg-gray-50 dark:hover:bg-gray-900"
     @click="navigate"
   >
-    <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-zinc-900">
+    <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900">
       <img width="864" height="378" :src="post.image" :alt="post.title" loading="lazy" />
     </div>
     <div class="m-2">

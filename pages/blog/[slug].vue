@@ -3,7 +3,7 @@
   const slug = route.params.slug as string;
 </script>
 <template>
-  <section class="prose dark:prose-dark">
+  <section >
     <ContentDoc :path="slug" />
   </section>
 </template>

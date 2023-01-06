@@ -2,14 +2,13 @@ import { defineConfig } from 'windicss/helpers';
 import defaultTheme from 'windicss/defaultTheme';
 import colors from 'windicss/colors';
 import forms from 'windicss/plugin/forms';
-import typography from 'windicss/plugin/typography';
 import aspectRadio from 'windicss/plugin/aspect-ratio';
 
 export default defineConfig({
   darkMode: 'class',
   shortcuts: {
     'nav-button':
-      'text-sm lg:text-base rounded leading-5 px-4 py-2 font-medium text-zinc-600 dark:text-zinc-300 hover:(dark:text-zinc-50 text-zinc-900 bg-zinc-900) focus:(dark:text-zinc-50 text-zinc-900)'
+      'text-sm lg:text-base rounded leading-5 px-4 py-2 font-medium text-gray-600 dark:text-gray-300 hover:(dark:text-gray-50 text-gray-900 bg-gray-900) focus:(dark:text-gray-50 text-gray-900)'
   },
   theme: {
     extend: {
@@ -23,137 +22,46 @@ export default defineConfig({
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
       },
       colors: {
-        primary: '#00DC82',
-        'primary-gray': '#18181B',
-        zinc: colors.zinc,
-        gray: colors.neutral
-      },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            color: theme('colors.gray.700'),
-            a: {
-              color: theme('colors.primary-gray'),
-              '&:hover': {
-                color: `${theme('colors.teal.600')} !important`
-              },
-              code: { color: theme('colors.teal.400') }
-            },
-            h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight')
-            },
-            h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight')
-            },
-            h3: {
-              fontWeight: '600'
-            },
-            pre: {
-              backgroundColor: theme('colors.gray.800')
-            },
-            code: {
-              color: theme('colors.primary'),
-              backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
-              borderRadius: '0.25rem'
-            },
-            'code::before': {
-              content: 'none'
-            },
-            'code::after': {
-              content: 'none'
-            },
-            details: {
-              backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
-              borderRadius: '0.25rem'
-            },
-            hr: { borderColor: theme('colors.gray.200') },
-            'ol li::marker': {
-              fontWeight: '600',
-              color: theme('colors.gray.500')
-            },
-            'ul li::marker': {
-              backgroundColor: theme('colors.gray.500')
-            },
-            strong: { color: theme('colors.gray.600') },
-            blockquote: {
-              color: theme('colors.gray.900'),
-              borderLeftColor: theme('colors.gray.200')
-            }
-          }
+        primary: {
+          50: '#ccf8e6',
+          100: '#9ff2d0',
+          200: '#71ecba',
+          300: '#44e5a3',
+          400: '#17df8d',
+          500: '#00dc82',
+          600: '#00a15f',
+          700: '#007a48',
+          800: '#005331',
+          900: '#002c1a'
         },
-        dark: {
-          css: {
-            color: theme('colors.gray.300'),
-            a: {
-              color: theme('colors.white'),
-              '&:hover': {
-                color: `${theme('colors.teal.400')} !important`
-              },
-              code: { color: theme('colors.teal.400') }
-            },
-            h1: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.100')
-            },
-            h2: {
-              fontWeight: '700',
-              letterSpacing: theme('letterSpacing.tight'),
-              color: theme('colors.gray.100')
-            },
-            h3: {
-              fontWeight: '600',
-              color: theme('colors.gray.100')
-            },
-            'h4,h5,h6': {
-              color: theme('colors.gray.100')
-            },
-            pre: {
-              backgroundColor: theme('colors.gray.800')
-            },
-            code: {
-              backgroundColor: theme('colors.gray.800')
-            },
-            details: {
-              backgroundColor: theme('colors.gray.800')
-            },
-            hr: { borderColor: theme('colors.gray.700') },
-            'ol li::marker': {
-              fontWeight: '600',
-              color: theme('colors.gray.400')
-            },
-            'ul li::marker': {
-              backgroundColor: theme('colors.gray.400')
-            },
-            strong: { color: theme('colors.gray.100') },
-            thead: {
-              th: {
-                color: theme('colors.gray.100')
-              }
-            },
-            tbody: {
-              tr: {
-                borderBottomColor: theme('colors.gray.700')
-              }
-            },
-            blockquote: {
-              color: theme('colors.gray.100'),
-              borderLeftColor: theme('colors.gray.700')
-            }
-          }
-        }
-      })
+        secondary: colors.zinc,
+        green: {
+          50: '#E8FFF6',
+          100: '#ACFFDD',
+          200: '#73FFC6',
+          300: '#39FFAE',
+          400: '#00DC82',
+          500: '#00BD6F',
+          600: '#009D5D',
+          700: '#007E4A',
+          800: '#005E38',
+          900: '#005233'
+        },
+        yellow: {
+          50: '#FDF6DB',
+          100: '#FCEDB7',
+          200: '#FFE896',
+          300: '#FFE072',
+          400: '#F7D14C',
+          500: '#F5C828',
+          600: '#DAAC0A',
+          700: '#A38108',
+          800: '#6D5605',
+          900: '#362B03'
+        },
+        gray: colors.gray
+      }
     }
   },
-  plugins: [forms, typography(), aspectRadio]
+  plugins: [forms, aspectRadio]
 });

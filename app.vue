@@ -17,19 +17,19 @@
 </template>
 <style>
   .scrollbars ::-webkit-scrollbar {
-    @apply bg-transparent h-[0.6em] w-[0.6em];
+    @apply bg-transparent h-1.75 w-1.75;
   }
   .scrollbars ::-webkit-scrollbar-thumb {
-    @apply rounded-[0.6em] bg-zinc-300 hover:bg-zinc-200;
+    @apply rounded-md bg-gray-400 hover:bg-gray-300;
   }
   .scrollbars ::-webkit-scrollbar-track {
-    @apply bg-zinc-100;
+    @apply bg-gray-100;
   }
 
   .dark.scrollbars ::-webkit-scrollbar-thumb {
-    @apply bg-zinc-700 hover:bg-zinc-600;
+    @apply bg-gray-700 hover:bg-gray-600;
   }
   .dark.scrollbars ::-webkit-scrollbar-track {
-    @apply bg-zinc-800;
+    @apply bg-gray-800;
   }
 </style>
