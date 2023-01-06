@@ -10,6 +10,11 @@ export default defineNuxtConfig({
       Inter: true
     }
   },
-  content: {},
+  content: {
+    highlight: {
+      theme: { default: 'light-plus', dark: 'dark-plus' },
+      preload: ['python', 'javascript']
+    }
+  },
   extends: '@nuxt-themes/typography'
 });

@@ -29,7 +29,7 @@ Sample of inline highlighting `sum = parseInt(num1) + parseInt(num2)`
 
 Some Javascript code
 
-```Javascript
+```javascript
 var num1, num2, sum
 num1 = prompt('Enter first number')
 num2 = prompt('Enter second number')
