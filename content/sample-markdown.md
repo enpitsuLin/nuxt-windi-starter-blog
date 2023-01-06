@@ -39,7 +39,7 @@ alert('Sum = ' + sum) // "+" means combine into a string
 
 Some Python code 🐍
 
-```python
+```python [filename.py]
 def fib():
     a, b = 0, 1
     while True:            # First iteration:
@@ -58,4 +58,15 @@ for index, fibonacci_number in zip(range(10), fib()):
 
 - first
 - second
+  - nested item
 - third
+
+- [ ] undone task
+- [x] done task
+
+## Table
+
+| col-1 | col-2 |
+| ----- | ----- |
+| 1-1   | 2-1   |
+| 1-2   | 2-2   |
