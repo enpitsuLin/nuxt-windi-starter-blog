@@ -1,7 +1,9 @@
 <template>
   <Header></Header>
-  <div class="mx-auto max-w-6xl px-4 sm:px-6 xl:max-w-8xl xl:px-0">
-    <div class="flex min-h-screen flex-col">
+  <div
+    class="flex flex-col mx-auto max-w-7xl opacity-100 px-4 transition translate-y-0 duration-700 relative sm:px-6 lg:px-8"
+  >
+    <div class="flex flex-col min-h-screen">
       <main class="mb-auto">
         <slot></slot>
       </main>

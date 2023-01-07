@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Nuxt Stater Blog',
   author: 'enpituslin',
-  description: 'A blog build with Nuxt 3 and sanity.io',
+  description: 'A blog build with Windicss and Nuxt',
   headerTitle: 'NuxtBlog',
   language: 'en-US',
   socialMedia: {

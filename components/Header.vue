@@ -8,8 +8,10 @@
 </script>
 
 <template>
-  <header class="bg-transparent top-0 left-0 z-20 sticky backdrop-filter backdrop-blur-8px backdrop-saturate-[180%]">
-    <div class="flex py-5 items-center justify-between mx-auto max-w-6xl px-4 sm:px-6 xl:max-w-8xl xl:px-0">
+  <header
+    class="bg-transparent shadow-sm dark:shadow-gray-800 top-0 left-0 z-20 sticky backdrop-filter backdrop-blur-8px backdrop-saturate-[180%]"
+  >
+    <div class="flex py-5 items-center justify-between mx-auto sm:px-6 lg:px-8 px-4 max-w-7xl relative">
       <div>
         <NuxtLink :aria-label="app.headerTitle" to="/">
           <div class="flex items-center justify-between">

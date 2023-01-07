@@ -7,8 +7,9 @@
     <div class="w-full mt-16 flex items-baseline justify-between px-2">
       <div class="mb-8 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
         <div>© {{ new Date().getFullYear() }}</div>
-        <div>•</div>
         <div>{{ app.author }}</div>
+        <div>•</div>
+        <div>{{ app.description }}</div>
       </div>
       <div class="mb-8 flex space-x-4">
         <SocialIcon type="mail" :href="`mailto:${app.socialMedia.mail}`" />
