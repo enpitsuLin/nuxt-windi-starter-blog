@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { PostContent } from '~~/composables/usePostContent';
 
-  const props = defineProps<{ post: PostContent }>();
+  const props = withDefaults(defineProps<{ post: PostContent; reverse?: boolean }>(), { reverse: false });
   const router = useRouter();
   const navigate = () => {
     router.push({ name: 'blog-slug', params: { slug: props.post._path?.slice(1) } });
@@ -10,7 +10,8 @@
 
 <template>
   <article
-    class="rounded-lg cursor-pointer flex flex-col shadow overflow-hidden md:flex-row dark:bg-[#0C0C0D] dark:shadow-dark-700 hover:bg-gray-50 dark:hover:bg-gray-900"
+    :class="[reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
+    class="rounded-lg cursor-pointer flex flex-col shadow overflow-hidden dark:bg-[#0C0C0D] dark:shadow-dark-700 hover:bg-gray-50 dark:hover:bg-gray-900"
     @click="navigate"
   >
     <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900">
