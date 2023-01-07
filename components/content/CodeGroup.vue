@@ -1,51 +1,47 @@
-<script lang="tsx">
+<script lang="ts" setup>
+  import { Slots, VNode } from 'vue';
   import TabsHeader from './TabsHeader.vue';
 
   const isTag = (slot: any, tag: string): boolean => {
     return slot.type && slot.type.tag && slot.type.tag === tag;
   };
+  const activeTabIndex = ref(0);
+  const tabsHeader = ref<InstanceType<typeof TabsHeader>>();
+  const $slots = useSlots();
 
-  export default defineComponent({
-    data() {
+  const slots = $slots.default?.() || [];
+  const tabs = slots
+    .filter((slot) => isTag(slot, 'code-block') || isTag(slot, 'code'))
+    .map((slot, index) => {
       return {
-        activeTabIndex: 0
+        label: slot?.props?.filename || slot?.props?.label || `${index}`,
+        active: slot?.props?.active || false,
+        component: slot
       };
-    },
-    render() {
-      const slots = this.$slots?.default?.() || [];
-      const tabs = slots
-        .filter((slot) => isTag(slot, 'code-block') || isTag(slot, 'code'))
-        .map((slot, index) => {
-          return {
-            label: slot?.props?.filename || slot?.props?.label || `${index}`,
-            active: slot?.props?.active || false,
-            component: slot
-          };
-        });
-      return (
-        <div class={['code-group', this.activeTabIndex === 0 && 'first-tab']}>
-          <TabsHeader
-            ref="tabs-header"
-            activeTabIndex={this.activeTabIndex}
-            tabs={tabs}
-            onUpdate:activeTabIndex={(e) => (this.activeTabIndex = e)}
-          />
-          <div class={{ class: 'code-group-content', text: this.activeTabIndex }}>
-            {slots.map((slot, index) => (
-              <div class={index === this.activeTabIndex ? 'block' : 'hidden'}>
-                {isTag(slot, 'code') ? (
-                  slot
-                ) : (
-                  <div class="preview-canvas">{(slot.children as any)?.default?.() || <div></div>}</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-  });
+    });
+
+  const renderPreviewCanvas = (slot: VNode<any, any, any>) => {
+    return (slot.children as Slots)?.default?.() ?? h('div');
+  };
 </script>
+
+<template>
+  <div class="code-group" :class="activeTabIndex === 0 && 'first-tab'">
+    <TabsHeader v-model:activeTabIndex="activeTabIndex" ref="tabsHeader" :tabs="tabs" />
+    <div class="code-group-content">
+      <div v-for="(slot, index) in slots" :class="index === activeTabIndex ? 'block' : 'hidden'">
+        <template v-if="isTag(slot, 'code')">
+          <component :is="slot" />
+        </template>
+        <template v-else>
+          <div class="preview-canvas">
+            <component :is="renderPreviewCanvas(slot)" />
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style>
   .code-group {
