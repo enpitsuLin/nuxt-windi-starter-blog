@@ -13,12 +13,12 @@
   <Card
     as="article"
     :class="[reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
-    class="ring-2 ring-transparent cursor-pointer flex flex-col hover:ring-primary-500 transition-all duration-200"
+    class="ring-2 p-0 ring-transparent cursor-pointer flex flex-col hover:ring-primary-500 transition-all duration-200"
   >
-    <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900">
+    <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900 relative pb-0">
       <img width="864" height="378" :src="post.image" :alt="post.title" loading="lazy" />
     </div>
-    <div class="m-2">
+    <div class="m-3">
       <div class="mb-1 px-4">
         <dl>
           <dt class="sr-only">Publish on</dt>
@@ -34,7 +34,7 @@
           <h1 class="font-bold text-body-xl mb-1">
             {{ post.title }}
           </h1>
-          <div class="flex flex-wrap relative z-20">
+          <div class="inline-flex flex-wrap relative z-20">
             <Tag v-for="tag in post.tags" :tag="tag" />
           </div>
         </div>
@@ -44,6 +44,6 @@
       </div>
     </div>
 
-    <NuxtLink :to="`blog${post._path}`" class="absolute inset-0 z-10"></NuxtLink>
+    <NuxtLink :to="`blog${post._path}`" class="absolute inset-0 z-10" :title="post.title" />
   </Card>
 </template>

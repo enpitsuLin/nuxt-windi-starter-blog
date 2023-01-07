@@ -5,7 +5,7 @@
 <template>
   <SEO :title="`${route.params.tag} - ${app.author}`" :description="app.description" />
   <div>
-    <div class="flex flex-col gap-y-4 relative justify-center sm:h-72 sm:gap-y-5">
+    <div class="flex flex-col gap-y-4 relative justify-center md:h-72 h-36 sm:gap-y-5">
       <h1 class="font-semibold text-4xl text-gray-900 sm:text-5xl dark:text-gray-100">
         <span class="capitalize">{{ route.params.tag }}</span>
       </h1>
@@ -14,7 +14,7 @@
           aria-label="Search articles"
           type="text"
           placeholder="Search articles"
-          class="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+          class="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
         />
         <svg
           class="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"
