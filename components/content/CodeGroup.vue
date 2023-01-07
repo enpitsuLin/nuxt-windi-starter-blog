@@ -9,16 +9,18 @@
   const tabsHeader = ref<InstanceType<typeof TabsHeader>>();
   const $slots = useSlots();
 
-  const slots = $slots.default?.() || [];
-  const tabs = slots
-    .filter((slot) => isTag(slot, 'code-block') || isTag(slot, 'code'))
-    .map((slot, index) => {
-      return {
-        label: slot?.props?.filename || slot?.props?.label || `${index}`,
-        active: slot?.props?.active || false,
-        component: slot
-      };
-    });
+  const slots = computed(() => $slots.default?.() || []);
+  const tabs = computed(() => {
+    return slots.value
+      .filter((slot) => isTag(slot, 'code-block') || isTag(slot, 'code'))
+      .map((slot, index) => {
+        return {
+          label: slot?.props?.filename || slot?.props?.label || `${index}`,
+          active: slot?.props?.active || false,
+          component: slot
+        };
+      });
+  });
 
   const renderPreviewCanvas = (slot: VNode<any, any, any>) => {
     return (slot.children as Slots)?.default?.() ?? h('div');
