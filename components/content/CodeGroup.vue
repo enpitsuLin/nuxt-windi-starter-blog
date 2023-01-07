@@ -58,10 +58,4 @@
   .preview-canvas {
     @apply p-4;
   }
-  .preview-canvas:has(.sandbox): {
-    @apply p-0;
-  }
-  .preview-canvas .sandbox: {
-    @apply border-0 rounded-none;
-  }
 </style>
