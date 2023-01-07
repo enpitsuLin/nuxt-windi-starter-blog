@@ -32,4 +32,8 @@
   .dark.scrollbars ::-webkit-scrollbar-track {
     @apply bg-gray-800;
   }
+  html {
+    font-size: 16px;
+    overflow-y: overlay;
+  }
 </style>
