@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-  import { useToggle } from '@vueuse/core';
+  import { useToggle, breakpointsTailwind, useBreakpoints } from '@vueuse/core';
 
+  const breakpoints = useBreakpoints(breakpointsTailwind);
+
+  const hidden = breakpoints.greaterOrEqual('lg');
   const [show, toggleShowRaw] = useToggle(false);
   const toggleShow = (value?: boolean) => {
     toggleShowRaw(value);
@@ -29,7 +32,7 @@
     <Teleport to="body">
       <Transition name="nav-fade">
         <div
-          v-show="show"
+          v-show="show && !hidden"
           class="fixed top-0 w-full h-full z-40 backdrop-filter backdrop-blur-2px backdrop-saturate-[180%]"
           @click="toggleShow(false)"
         >
