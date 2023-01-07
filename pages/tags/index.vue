@@ -13,10 +13,15 @@
 </script>
 <template>
   <SEO :title="`Tags - ${app.author}`" :description="app.description" />
-  <section>
-    <h2>/tags</h2>
-    <code>
-      <pre>{{ JSON.stringify(data, null, 2) }}</pre>
-    </code>
-  </section>
+  <div>
+    <div class="flex flex-col gap-y-4 relative justify-center sm:h-72 sm:gap-y-5">
+      <h1 class="font-semibold text-4xl text-gray-900 sm:text-5xl dark:text-gray-100">Tags</h1>
+      <div class="ont-medium text-gray-600 sm:max-w-lg sm:text-lg dark:text-gray-300">Discover all tags from content.</div>
+    </div>
+    <Card>
+      <div class="flex flex-wrap">
+        <Tag v-for="[tag, count] in Object.entries(data ?? {})" :tag="tag" :count="count" />
+      </div>
+    </Card>
+  </div>
 </template>

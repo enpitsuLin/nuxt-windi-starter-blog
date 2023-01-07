@@ -6,15 +6,11 @@
 <template>
   <SEO :title="app.title" :description="app.description" />
   <div>
-    <div class="space-y-2 pt-6 pb-8 md:space-y-5">
-      <h1
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14"
-      >
-        Latest
-      </h1>
-      <p class="max-w-lg pb-6 sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-gray-600 dark:text-gray-300">
+    <div class="flex flex-col gap-y-4 relative justify-center sm:h-72 sm:gap-y-5">
+      <h1 class="font-semibold text-4xl text-gray-900 sm:text-5xl dark:text-gray-100">Latest</h1>
+      <div class="font-medium text-gray-600 sm:max-w-lg sm:text-lg dark:text-gray-300">
         {{ app.description }}
-      </p>
+      </div>
     </div>
     <ul class="space-y-4">
       <li v-for="(content, index) in data">
