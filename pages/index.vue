@@ -18,7 +18,7 @@
     </div>
     <ul class="space-y-4">
       <li v-for="(content, index) in data">
-        <PostCard :post="content" :reverse="index % 2 === 0" />
+        <PostCard :post="content" :reverse="index % 2 === 1" />
       </li>
     </ul>
   </div>

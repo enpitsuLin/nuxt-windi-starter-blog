@@ -6,6 +6,11 @@
   const navigate = () => {
     router.push({ name: 'blog-slug', params: { slug: props.post._path?.slice(1) } });
   };
+
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const format = (date: string) => {
+    return new Date(date).toLocaleDateString('en-US', options);
+  };
 </script>
 
 <template>
@@ -23,7 +28,7 @@
           <dt class="sr-only">Publish on</dt>
           <dd class="font-medium mr-2 text-sm text-gray-500 dark:text-cloud-light">
             <time :datetime="post.date">
-              {{ post.date ? new Date(post.date).toDateString() : '' }}
+              {{ post.date ? format(post.date) : '' }}
             </time>
           </dd>
         </dl>
@@ -34,12 +39,7 @@
             <NuxtLink :to="`blog${post._path}`">{{ post.title }}</NuxtLink>
           </h1>
           <div class="flex flex-wrap">
-            <NuxtLink
-              v-for="tag in post.tags"
-              class="mr-3 text-sm font-medium lowercase text-primary-700 dark:text-primary-500 hover:text-primary-600 dark:hover:text-primary-500"
-            >
-              # {{ tag }}
-            </NuxtLink>
+            <Tag v-for="tag in post.tags" :tag="tag" />
           </div>
         </div>
         <p class="pb-4 text-gray-500 truncate sm:whitespace-normal dark:text-cloud-lighter">

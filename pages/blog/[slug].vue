@@ -3,7 +3,9 @@
   const slug = route.params.slug as string;
 </script>
 <template>
-  <section >
-    <ContentDoc :path="slug" />
+  <section>
+    <ContentDoc :path="slug" v-slot="{ doc }">
+      <ContentRenderer :value="doc" />
+    </ContentDoc>
   </section>
 </template>

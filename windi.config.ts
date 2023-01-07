@@ -17,6 +17,9 @@ export default defineConfig({
         'box-shadow': 'inset 0 2px 4px 0 rgb(0 0 0 / 5%)',
         '@apply': 'bg-gray-100 dark:bg-gray-900'
       }
+    },
+    'tag-link': {
+      '@apply': 'bg-slate-100 dark:bg-neutral-700 rounded-full mt-2 mr-4 text-xs py-1 px-3 uppercase no-underline'
     }
   },
   theme: {
