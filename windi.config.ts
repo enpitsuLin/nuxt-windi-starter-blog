@@ -15,7 +15,7 @@ export default defineConfig({
       },
       '&.active': {
         'box-shadow': 'inset 0 2px 4px 0 rgb(0 0 0 / 5%)',
-        '@apply': 'bg-gray-100'
+        '@apply': 'bg-gray-100 dark:bg-gray-900'
       }
     }
   },
