@@ -57,7 +57,7 @@
         {{ label }}
       </button>
       <span ref="highlightUnderline" class="highlight-underline">
-        <span class="flex w-full h-full bg-gray-100 dark:bg-gray-900" />
+        <span class="flex h-full bg-gray-100 w-full dark:bg-gray-900" />
       </span>
     </div>
 
@@ -66,13 +66,13 @@
 </template>
 <style scoped>
   .tabs-header {
-    @apply relative bg-gray-200 text-red-700 dark:text-red-500 dark:bg-gray-800;
+    @apply bg-gray-200 text-red-700 relative dark:bg-gray-800 dark:text-red-500;
   }
   .tabs-header .tabs {
-    @apply relative z-0 flex px-2 overflow-x-auto;
+    @apply flex px-2 z-0 relative overflow-x-auto;
   }
   .tabs-header .tabs .highlight-underline {
     transition-property: left, width;
-    @apply absolute -z-1 top-0 h-full duration-150;
+    @apply h-full top-0 -z-1 duration-150 absolute;
   }
 </style>

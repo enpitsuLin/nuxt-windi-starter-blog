@@ -47,10 +47,10 @@
 
 <style>
   .code-group {
-    @apply border-secondary-400 border rounded-md overflow-hidden;
+    @apply border rounded-md border-secondary-400 overflow-hidden;
   }
   .code-group .prose-code {
-    @apply m-0 border-none rounded-none;
+    @apply border-none rounded-none m-0;
   }
   .code-group .filename {
     @apply hidden;

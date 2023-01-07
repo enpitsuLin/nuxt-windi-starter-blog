@@ -9,9 +9,9 @@
 
 <template>
   <header
-    class="bg-transparent shadow-sm dark:shadow-gray-800 top-0 left-0 z-20 sticky backdrop-filter backdrop-blur-8px backdrop-saturate-[180%]"
+    class="bg-transparent shadow-sm top-0 left-0 z-20 sticky backdrop-filter backdrop-blur-8px backdrop-saturate-[180%] dark:shadow-gray-800"
   >
-    <div class="flex py-5 items-center justify-between mx-auto sm:px-6 lg:px-8 px-4 max-w-7xl relative">
+    <div class="flex mx-auto max-w-7xl py-5 px-4 items-center justify-between relative sm:px-6 lg:px-8">
       <MobileNav />
       <div>
         <NuxtLink :aria-label="app.headerTitle" to="/">
@@ -22,14 +22,14 @@
         </NuxtLink>
       </div>
       <div class="flex text-base leading-5 items-center">
-        <div class="hidden sm:block space-x-4">
-          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/blog">
+        <div class="space-x-4 hidden sm:block">
+          <NavLink class="transition-all duration animate-ease-[cubic-bezier(0.4,0.1,0.2,1)] nav-button" to="/blog">
             Blog
           </NavLink>
-          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/tags">
+          <NavLink class="transition-all duration animate-ease-[cubic-bezier(0.4,0.1,0.2,1)] nav-button" to="/tags">
             Tags
           </NavLink>
-          <NavLink class="nav-button duration transition-all animate-ease-[cubic-bezier(0.4,0.1,0.2,1)]" to="/about">
+          <NavLink class="transition-all duration animate-ease-[cubic-bezier(0.4,0.1,0.2,1)] nav-button" to="/about">
             About
           </NavLink>
         </div>

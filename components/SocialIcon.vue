@@ -20,14 +20,14 @@
 <template>
   <a
     :href="href"
-    class="text-sm text-gray-500 transition hover:text-gray-600"
+    class="text-sm transition text-gray-500 hover:text-gray-600"
     target="_blank"
     rel="noopener noreferrer"
   >
     <span class="sr-only">{{ type }}</span>
     <component
       :is="components[type]"
-      class="fill-current text-gray-700 hover:text-green-400 dark:text-gray-200 h-6 w-6"
+      class="h-6 fill-current text-gray-700 w-6 dark:text-gray-200 hover:text-green-400"
     />
   </a>
 </template>

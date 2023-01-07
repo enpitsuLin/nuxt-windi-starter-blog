@@ -4,14 +4,14 @@
 
 <template>
   <footer>
-    <div class="w-full mt-16 flex items-baseline justify-between px-2">
-      <div class="mb-8 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
+    <div class="flex mt-16 w-full px-2 items-baseline justify-between">
+      <div class="flex space-x-2 text-sm mb-8 text-gray-500 dark:text-gray-400">
         <div>© {{ new Date().getFullYear() }}</div>
         <div>{{ app.author }}</div>
         <div>•</div>
         <div>{{ app.description }}</div>
       </div>
-      <div class="mb-8 flex space-x-4">
+      <div class="flex space-x-4 mb-8">
         <SocialIcon type="mail" :href="`mailto:${app.socialMedia.mail}`" />
         <SocialIcon type="github" :href="app.socialMedia.github" />
         <SocialIcon type="facebook" :href="app.socialMedia.facebook" />

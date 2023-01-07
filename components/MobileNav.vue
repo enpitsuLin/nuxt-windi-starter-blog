@@ -17,7 +17,7 @@
 
 <template>
   <div class="flex items-center lg:hidden">
-    <button class="inline-flex text-xl p-2" @click="toggleShow(true)">
+    <button class="text-xl p-2 inline-flex" @click="toggleShow(true)">
       <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
         <path
           fill="none"
@@ -33,12 +33,12 @@
       <Transition name="nav-fade">
         <div
           v-show="show && !hidden"
-          class="fixed top-0 w-full h-full z-40 backdrop-filter backdrop-blur-2px backdrop-saturate-[180%]"
+          class="h-full w-full top-0 z-40 fixed backdrop-filter backdrop-blur-2px backdrop-saturate-[180%]"
           @click="toggleShow(false)"
         >
-          <aside class="relative h-screen w-2/3 shadow bg-gray-50 dark:shadow-gray-800 dark:bg-gray-900 translate-x-0">
-            <div class="bg-light-700 dark:bg-dark-400 flex lg:hidden items-center justify-between px-4 py-4.8">
-              <button class="inline-flex text-xl p-2" @click="toggleShow(true)">
+          <aside class="h-screen bg-gray-50 shadow w-2/3 translate-x-0 relative dark:bg-gray-900 dark:shadow-gray-800">
+            <div class="flex bg-light-700 py-4.8 px-4 items-center justify-between lg:hidden dark:bg-dark-400">
+              <button class="text-xl p-2 inline-flex" @click="toggleShow(true)">
                 <svg width="1.2em" height="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
                   <path
                     fill="none"
@@ -51,34 +51,34 @@
                 </svg>
               </button>
             </div>
-            <nav class="relative mt-8 h-full w-full">
+            <nav class="h-full mt-8 w-full relative">
               <NuxtLink
                 to="/"
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 cursor-pointer"
+                class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="px-6 py-4">Home</div>
+                <div class="py-4 px-6">Home</div>
               </NuxtLink>
               <NuxtLink
                 to="/blog"
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 cursor-pointer"
+                class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="px-6 py-4">Blog</div>
+                <div class="py-4 px-6">Blog</div>
               </NuxtLink>
               <NuxtLink
                 to="/tags"
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 cursor-pointer"
+                class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="px-6 py-4">Tags</div>
+                <div class="py-4 px-6">Tags</div>
               </NuxtLink>
               <NuxtLink
                 to="/about"
-                class="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100 cursor-pointer"
+                class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="px-6 py-4">About</div>
+                <div class="py-4 px-6">About</div>
               </NuxtLink>
             </nav>
           </aside>

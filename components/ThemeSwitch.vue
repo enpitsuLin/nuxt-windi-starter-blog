@@ -6,7 +6,7 @@
   <button
     aria-label="Toggle Dark Mode"
     type="button"
-    class="ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4"
+    class="rounded h-8 mr-1 ml-1 p-1 w-8 sm:ml-4"
     @click="toggleTheme()"
   >
     <ClientOnly>

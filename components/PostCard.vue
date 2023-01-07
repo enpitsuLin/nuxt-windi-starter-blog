@@ -13,10 +13,17 @@
   <Card
     as="article"
     :class="[reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
-    class="ring-2 p-0 ring-transparent cursor-pointer flex flex-col hover:ring-primary-500 transition-all duration-200"
+    class="cursor-pointer flex flex-col ring-transparent p-0 transition-shadow ring-2 duration-200 hover:ring-primary-500"
   >
-    <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900 relative pb-0">
-      <img class="absolute inset-0 w-full h-full" width="864" height="378" :src="post.image" :alt="post.title" loading="lazy" />
+    <div class="bg-gray-100 w-full pb-0 relative md:mb-0 md:w-md dark:bg-gray-900">
+      <img
+        class="h-full w-full inset-0 absolute"
+        width="864"
+        height="378"
+        :src="post.image"
+        :alt="post.title"
+        loading="lazy"
+      />
     </div>
     <div class="m-3">
       <div class="mb-1 px-4">
@@ -31,10 +38,10 @@
       </div>
       <div class="space-y-3 px-4">
         <div>
-          <h1 class="font-bold text-body-xl mb-1">
+          <h1 class="font-bold text-body-xl mb-1 text-gray-900 dark:text-white">
             {{ post.title }}
           </h1>
-          <div class="inline-flex flex-wrap relative z-20">
+          <div class="flex-wrap z-20 inline-flex relative">
             <Tag v-for="tag in post.tags" :tag="tag" />
           </div>
         </div>
@@ -44,6 +51,6 @@
       </div>
     </div>
 
-    <NuxtLink :to="`blog${post._path}`" class="absolute inset-0 z-10" :title="post.title" />
+    <NuxtLink :to="`blog${post._path}`" class="inset-0 z-10 absolute" :title="post.title" />
   </Card>
 </template>
