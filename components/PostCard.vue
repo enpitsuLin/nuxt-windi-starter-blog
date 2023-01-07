@@ -16,7 +16,7 @@
     class="ring-2 p-0 ring-transparent cursor-pointer flex flex-col hover:ring-primary-500 transition-all duration-200"
   >
     <div class="bg-gray-100 w-full md:mb-0 md:w-md dark:bg-gray-900 relative pb-0">
-      <img width="864" height="378" :src="post.image" :alt="post.title" loading="lazy" />
+      <img class="absolute inset-0 w-full h-full" width="864" height="378" :src="post.image" :alt="post.title" loading="lazy" />
     </div>
     <div class="m-3">
       <div class="mb-1 px-4">
