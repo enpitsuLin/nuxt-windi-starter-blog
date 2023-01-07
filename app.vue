@@ -34,6 +34,13 @@
   }
   html {
     font-size: 16px;
+    scroll-behavior: smooth;
     overflow-y: overlay;
+  }
+  :target::before {
+    content: '';
+    display: block;
+    height: 80px;
+    margin: -80px 0 0;
   }
 </style>
