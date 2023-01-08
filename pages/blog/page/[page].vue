@@ -1,12 +1,19 @@
 <script setup lang="ts">
   const app = useAppConfig();
   const route = useRoute();
+
   const { query } = usePostContent();
-  const { data } = await useAsyncData('blog', () => query.find());
+
+  const current = computed(() => Number(route.params.page!));
+  const total = computed(() => data.value?.length ?? 0);
+
+  const { data } = await useAsyncData('blog', () => {
+    const skip = (current.value - 1) * 5;
+    return query.skip(skip).find();
+  });
 </script>
 <template>
   <SEO :title="`Page ${route.params.page} - ${app.author}`" :description="app.description" />
-
   <div>
     <div class="flex flex-col h-36 gap-y-4 relative justify-center sm:gap-y-5 md:h-72">
       <h1 class="font-semibold text-4xl text-gray-900 sm:text-5xl dark:text-gray-100">Posts</h1>
@@ -20,4 +27,5 @@
       <PostCard :post="content" :reverse="index % 2 === 1" />
     </li>
   </ul>
+  <Pagination :total="total" :current="current" />
 </template>

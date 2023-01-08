@@ -1,7 +1,10 @@
 <script setup lang="ts">
   const app = useAppConfig();
+
   const { query } = usePostContent();
   const { data } = await useAsyncData('blog', () => query.find());
+
+  const total = computed(() => data.value?.length ?? 0);
 </script>
 <template>
   <SEO :title="`Blog - ${app.author}`" :description="app.description" />
@@ -18,5 +21,5 @@
       <PostCard :post="content" :reverse="index % 2 === 1" />
     </li>
   </ul>
-  <Pagination :total="1" :current="1" />
+  <Pagination :total="total" :current="1" />
 </template>
