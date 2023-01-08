@@ -13,6 +13,7 @@
     "@iconify-json/fa": "^1.1.3",
     "@nuxt-themes/typography": "^0.4.0",
     "@nuxt/content": "^2.3.0",
+    "@nuxt/image-edge": "1.0.0-27840416.dc1ed65",
     "@nuxtjs/google-fonts": "3.0.0-1",
     "nuxt": "3.0.0",
     "nuxt-windicss": "^2.6.0",

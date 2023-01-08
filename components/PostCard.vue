@@ -15,12 +15,11 @@
     :class="[reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
     class="cursor-pointer flex flex-col ring-transparent p-0 transition-shadow ring-2 duration-200 hover:ring-primary-500"
   >
-    <div class="bg-gray-100 w-full pb-0 relative md:mb-0 md:w-md dark:bg-gray-900">
-      <img
-        class="h-full w-full inset-0 absolute"
-        width="864"
-        height="378"
+    <div class="bg-gray-100 w-full pb-0 relative md:mb-0 lg:w-md dark:bg-gray-900">
+      <NuxtImg
+        class="h-full w-full inset-0 relative md:absolute"
         :src="post.image"
+        fit="cover"
         :alt="post.title"
         loading="lazy"
       />
