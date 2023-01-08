@@ -15,7 +15,7 @@
     :class="[reverse ? 'md:flex-row-reverse' : 'md:flex-row']"
     class="cursor-pointer flex flex-col ring-transparent p-0 transition-shadow ring-2 duration-200 hover:ring-primary-500"
   >
-    <div class="bg-gray-100 w-full pb-0 relative md:mb-0 lg:w-md dark:bg-gray-900">
+    <div class="bg-gray-100 w-full pb-0 relative md:mb-0 lg:w-2/7 dark:bg-gray-900">
       <NuxtImg
         class="h-full w-full inset-0 relative md:absolute"
         :src="post.image"
@@ -24,7 +24,7 @@
         loading="lazy"
       />
     </div>
-    <div class="m-3">
+    <div class="m-3 w-full lg:w-5/7">
       <div class="mb-1 px-4">
         <dl>
           <dt class="sr-only">Publish on</dt>
