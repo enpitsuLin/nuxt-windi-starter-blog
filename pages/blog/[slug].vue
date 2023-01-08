@@ -5,9 +5,12 @@
 
   const { query: querySurround } = usePostContent();
 
-  const { data } = await useAsyncData(`blog:${slug}`, () => query.where({ _path: '/' + slug }).findOne());
+  const { data } = await useAsyncData(`blog:${slug}`, () => query.where({ slug }).findOne());
   const { data: surroundData } = await useAsyncData(`blog:${slug}:surround`, async () => {
-    const [prev, next] = await querySurround.only(['title', '_path']).findSurround('/' + slug);
+    const [prev, next] = await querySurround
+      .sort({ date: 1 })
+      .only(['title', 'slug'])
+      .findSurround('/' + slug);
     return { prev, next };
   });
 

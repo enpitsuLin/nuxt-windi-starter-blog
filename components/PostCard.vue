@@ -50,6 +50,6 @@
       </div>
     </div>
 
-    <NuxtLink :to="`/blog${post._path}`" class="inset-0 z-10 absolute" :title="post.title" />
+    <NuxtLink :to="`/blog/${post.slug}`" class="inset-0 z-10 absolute" :title="post.title" />
   </Card>
 </template>
