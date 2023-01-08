@@ -4,7 +4,7 @@
   const { query } = usePostContent();
   const { data } = await useAsyncData('blog', () => query.find());
 
-  const total = computed(() => data.value?.length ?? 0);
+  const total = computed(() => Math.ceil((data.value?.length ?? 0) / app.postPerPage));
 </script>
 <template>
   <SEO :title="`Blog - ${app.author}`" :description="app.description" />

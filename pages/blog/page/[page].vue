@@ -5,7 +5,7 @@
   const { query } = usePostContent();
 
   const current = computed(() => Number(route.params.page!));
-  const total = computed(() => data.value?.length ?? 0);
+  const total = computed(() => Math.ceil((data.value?.length ?? 0) / app.postPerPage));
 
   const { data } = await useAsyncData('blog', () => {
     const skip = (current.value - 1) * 5;
