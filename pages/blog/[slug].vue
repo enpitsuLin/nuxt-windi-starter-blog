@@ -3,9 +3,12 @@
   const slug = route.params.slug as string;
   const { query } = usePostContent();
 
+  const { query: querySurround } = usePostContent();
+
   const { data } = await useAsyncData(`blog:${slug}`, () => query.where({ _path: '/' + slug }).findOne());
-  const { data: surroundData } = await useAsyncData(`blog:${slug}:surround`, () => {
-    return query.findSurround('/' + slug);
+  const { data: surroundData } = await useAsyncData(`blog:${slug}:surround`, async () => {
+    const [prev, next] = await querySurround.only(['title', '_path']).findSurround('/' + slug);
+    return { prev, next };
   });
 
   if (!data.value) {
@@ -15,10 +18,10 @@
   const format = (date: string) => {
     return new Date(date).toLocaleDateString('en-US', options);
   };
-  console.log(surroundData.value);
 </script>
 <template>
   <template v-if="data">
+    {{ JSON.stringify(surroundData) }}
     <SEO :title="data.title" :description="data.summary" />
     <article>
       <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
