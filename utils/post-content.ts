@@ -32,16 +32,13 @@ export const getPost = async (slug: string) => {
   const query = getQueryContentBuilder();
   const querySurround = getQueryContentBuilder();
   const post = await query.where({ slug }).findOne();
-  try {
-    const [prev, next] = await querySurround.only(['slug', 'title']).sort({ date: 1 }).findSurround({ slug });
-    return { post, prev, next } as {
-      post: PostContent;
-      prev: Pick<PostContent, 'title' | 'slug'>;
-      next: Pick<PostContent, 'title' | 'slug'>;
-    };
-  } catch (error) {
-    console.error(error);
-  }
+
+  const [prev, next] = (await querySurround.only(['slug', 'title']).sort({ date: 1 }).findSurround({ slug })) as [
+    Pick<PostContent, 'title' | 'slug'> | null,
+    Pick<PostContent, 'title' | 'slug'> | null
+  ];
+
+  return { post, prev, next };
 };
 
 export const getTags = async () => {
