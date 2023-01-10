@@ -2,7 +2,7 @@
 title: Sample markdown file
 date: 2023-01-06
 tags: ['markdown', 'code', 'features']
-summary: Example of a markdown file with code blocks and syntax highlighting, Test some thing in @nuxt/content, such as code highlight, custom prose component and more.
+description: Example of a markdown file with code blocks and syntax highlighting, Test some thing in @nuxt/content, such as code highlight, custom prose component and more.
 image: https://www.bing.com/th?id=OHR.BlackFell_ROW0513131477_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&qlt=50
 ---
 

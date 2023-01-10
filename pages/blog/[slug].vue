@@ -25,7 +25,7 @@
 <template>
   <template v-if="data">
     {{ JSON.stringify(surroundData) }}
-    <SEO :title="data.title" :description="data.summary" />
+    <SEO :title="data.title" :description="data.description" />
     <article>
       <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
         <header class="pt-12 xl:pb-4">

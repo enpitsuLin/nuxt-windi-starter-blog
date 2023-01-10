@@ -1,10 +1,9 @@
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
+import type { MarkdownParsedContent } from '@nuxt/content/dist/runtime/types';
 
-export interface PostContent extends ParsedContent {
+export interface PostContent extends MarkdownParsedContent {
   tags?: string[];
   /** ISO Format Date String */
   date?: string;
-  summary?: string;
   image?: string;
   /** inject by `~/server/plugins/content-slug` */
   slug: string;

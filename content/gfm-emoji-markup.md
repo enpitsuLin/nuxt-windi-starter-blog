@@ -2,7 +2,7 @@
 title: GFM emoji markup
 date: 2023-01-08
 tags: ['markdown', 'gfm', 'emoji']
-summary: You can use emoji anywhere Github Flavored Markdown is supported.You can add emoji to your writing by typing :EMOJICODE:.
+description: You can use emoji anywhere Github Flavored Markdown is supported.You can add emoji to your writing by typing :EMOJICODE:.
 image: https://www.bing.com/th?id=OHR.BlackFell_ROW0513131477_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&qlt=50
 ---
 

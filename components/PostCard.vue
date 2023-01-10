@@ -45,7 +45,7 @@
           </div>
         </div>
         <p class="pb-4 text-gray-500 truncate sm:whitespace-normal dark:text-cloud-lighter">
-          {{ post.summary }}
+          {{ post.description }}
         </p>
       </div>
     </div>
