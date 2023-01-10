@@ -30,15 +30,18 @@ export const getPosts = async ({ where, limit, skip }: QueryOption = {}) => {
 
 export const getPost = async (slug: string) => {
   const query = getQueryContentBuilder();
-  const querySurround = getQueryContentBuilder();
   const post = await query.where({ slug }).findOne();
 
-  const [prev, next] = (await querySurround.only(['slug', 'title']).sort({ date: 1 }).findSurround({ slug })) as [
+  return post;
+};
+
+export const getSurround = async (slug: string) => {
+  const query = getQueryContentBuilder();
+  const [prev = null, next = null] = (await query.only(['slug', 'title']).sort({ date: 1 }).findSurround({ slug })) as [
     Pick<PostContent, 'title' | 'slug'> | null,
     Pick<PostContent, 'title' | 'slug'> | null
   ];
-
-  return { post, prev, next };
+  return { prev, next };
 };
 
 export const getTags = async () => {
