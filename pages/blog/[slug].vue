@@ -9,10 +9,11 @@
   const format = (date: string) => {
     return new Date(date).toLocaleDateString('en-US', options);
   };
+  const prev = computed(() => surroundData.value?.prev);
+  const next = computed(() => surroundData.value?.next);
 </script>
 <template>
   <template v-if="data">
-    {{ JSON.stringify(surroundData) }}
     <SEO :title="data.title ?? ''" :description="data.description" />
     <article>
       <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
@@ -40,6 +41,27 @@
             </div>
             <div class="py-6 text-gray-700 dark:text-gray-200">Comments</div>
           </div>
+          <footer>
+            <div
+              class="font-medium divide-gray-200 text-sm leading-5 xl:divide-y xl:col-start-1 xl:row-start-2 dark:divide-gray-700"
+            >
+              <div v-if="next || prev" class="flex py-4 justify-between xl:space-y-8 xl:py-8 xl:block">
+                <div v-if="prev">
+                  <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Previous Article</h2>
+                  <div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                    <NuxtLink :href="`/blog/${prev.slug}`">{{ prev.title }}</NuxtLink>
+                  </div>
+                </div>
+
+                <div v-if="next">
+                  <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Next Article</h2>
+                  <div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                    <NuxtLink :href="`/blog/${next.slug}`">{{ next.title }}</NuxtLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </article>
