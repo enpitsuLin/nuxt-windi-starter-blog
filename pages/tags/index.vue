@@ -1,6 +1,5 @@
 <script setup lang="ts">
   const app = useAppConfig();
-  const { query } = usePostContent();
 
   const { data } = await useAsyncData('tags', () => getTags());
 </script>
