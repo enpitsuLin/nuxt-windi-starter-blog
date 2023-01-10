@@ -1,7 +1,6 @@
 <script setup lang="ts">
   const app = useAppConfig();
-  const { query } = usePostContent();
-  const { data } = await useAsyncData('home', () => query.limit(5).find());
+  const { data } = await useAsyncData('home', () => getPosts({ limit: 5 }));
 </script>
 <template>
   <SEO :title="app.title" :description="app.description" />

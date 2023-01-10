@@ -2,15 +2,8 @@
   const app = useAppConfig();
   const route = useRoute();
 
-  const { query } = usePostContent();
   const { data } = await useAsyncData('tag', () =>
-    query
-      .where({
-        tags: {
-          $contains: [route.params.tag as string]
-        }
-      })
-      .find()
+    getPosts({ where: { tags: { $contains: [route.params.tag as string] } } })
   );
 </script>
 <template>

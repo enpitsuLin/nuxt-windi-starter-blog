@@ -1,8 +1,7 @@
 <script setup lang="ts">
   const app = useAppConfig();
 
-  const { query } = usePostContent();
-  const { data } = await useAsyncData('blog', () => query.find());
+  const { data } = await useAsyncData('blog', () => getPosts({ limit: 5 }));
 
   const total = computed(() => Math.ceil((data.value?.length ?? 0) / app.postPerPage));
 </script>

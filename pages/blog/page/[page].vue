@@ -2,15 +2,10 @@
   const app = useAppConfig();
   const route = useRoute();
 
-  const { query } = usePostContent();
-
-  const current = computed(() => Number(route.params.page!));
+  const current = Number(route.params.page!);
   const total = computed(() => Math.ceil((data.value?.length ?? 0) / app.postPerPage));
 
-  const { data } = await useAsyncData('blog', () => {
-    const skip = (current.value - 1) * 5;
-    return query.skip(skip).find();
-  });
+  const { data } = await useAsyncData('blog', () => getPosts({ skip: (current - 1) * 5, limit: 5 }));
 </script>
 <template>
   <SEO :title="`Page ${route.params.page} - ${app.author}`" :description="app.description" />

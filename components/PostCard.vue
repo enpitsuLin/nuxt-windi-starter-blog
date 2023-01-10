@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { PostContent } from '~~/composables/usePostContent';
+  import { PostContent } from '~/utils/post-content';
 
   const props = withDefaults(defineProps<{ post: PostContent; reverse?: boolean }>(), { reverse: false });
 
