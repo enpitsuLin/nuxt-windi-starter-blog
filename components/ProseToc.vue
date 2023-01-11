@@ -34,9 +34,9 @@
 
 <template>
   <div
-    class="order-1 -mx-4 px-4 top-20 z-30 backdrop-filter overflow-x-hidden sticky backdrop-blur-md sm:-mx-6 sm:px-6 lg:mx-0 lg:-mt-8 lg:max-h-[calc(100vh-80px)] lg:px-0 lg:pt-8 lg:z-0 lg:col-span-2 lg:self-start"
+    class="flex-1 -mx-4 px-4 backdrop-filter overflow-x-hidden backdrop-blur-md sm:-mx-6 sm:px-6 lg:mx-0 lg:max-h-[calc(100vh-80px)] lg:px-0 lg:z-0"
   >
-    <div class="border-b border-dashed border-gray-200 py-3 lg:border-none lg:py-0 dark:border-gray-700">
+    <div class="border-b border-gray-200 py-3 lg:border-none lg:py-0 dark:border-gray-700">
       <button class="flex gap-3 items-center lg:hidden" tabindex="-1" @click="toggleShow()">
         <span class="font-semibold text-sm text-gray-900 leading-6 dark:text-gray-50">Table of Contents</span>
         <svg

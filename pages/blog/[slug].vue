@@ -3,6 +3,7 @@
   const slug = route.params.slug as string;
 
   const { data } = await useAsyncData(`blog:${slug}`, () => getPost(slug));
+  const { data: latestPost } = await useAsyncData('home', () => getPosts({ limit: 5 }));
   const { data: surroundData } = await useAsyncData(() => getSurround(slug));
 
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -17,11 +18,28 @@
     <SEO :title="data.title ?? ''" :description="data.description" />
     <div class="col-span-10 relative lg:col-span-8">
       <section class="flex flex-col-reverse gap-8 relative lg:grid lg:grid-cols-10">
-        <ProseToc v-if="data.body.toc.links.length > 0" :links="data.body.toc.links" />
-
+        <div class="flex flex-col order-1 lg:col-span-2 lg:self-start sticky top-20 z-20 lg:pt-8">
+          <div class="flex flex-col mt-4 py-1 px-1 hidden lg:mt-0 lg:block">
+            <span class="font-semibold text-sm items-center hidden overflow-hidden lg:flex">
+              <h2>Latest Post</h2>
+            </span>
+            <ul class="px-1 divide-y divide-dashed divide-gray-500">
+              <li v-for="item in latestPost" class="py-2">
+                <NuxtLink
+                  :to="`/blog/${item.slug}`"
+                  class="text-sm py-1 text-gray-500 block lg:pr-3 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
+                >
+                  <span class="text-gray-300 dark:text-gray-500">{{ format(item.date) }}</span>
+                  <p>{{ item.title }}</p>
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+          <ProseToc v-if="data.body.toc.links.length > 0" :links="data.body.toc.links" />
+        </div>
         <article class="col-span-10 docs-page lg:col-span-8">
           <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-            <header class="pt-6 xl:pb-4 border-b border-gray-200 dark:border-gray-700">
+            <header class="border-b border-gray-200 pt-6 xl:pb-4 dark:border-gray-700">
               <div class="space-y-2 text-center">
                 <dl>
                   <div>
