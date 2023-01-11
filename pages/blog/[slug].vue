@@ -3,6 +3,9 @@
   const slug = route.params.slug as string;
 
   const { data } = await useAsyncData(`blog:${slug}`, () => getPost(slug));
+  if (!data.value) {
+    throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
+  }
   const { data: latestPost } = await useAsyncData('home', () => getPosts({ limit: 5 }));
   const { data: surroundData } = await useAsyncData(() => getSurround(slug));
 
