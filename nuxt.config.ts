@@ -21,9 +21,6 @@ export default defineNuxtConfig({
     }
   },
   extends: ['@nuxt-themes/typography'],
-  experimental: {
-    payloadExtraction: false
-  },
   routeRules: {
     // prerendered pages
     '/': { prerender: true },
