@@ -48,7 +48,7 @@
               </li>
             </ul>
           </div>
-          <ProseToc v-if="data.body.toc.links.length > 0" :links="data.body.toc.links" />
+          <ProseToc v-if="data.body?.toc?.links.length > 0" :links="data.body.toc?.links" />
         </div>
         <article class="col-span-10 docs-page lg:col-span-9">
           <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
