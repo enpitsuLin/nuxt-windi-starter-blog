@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       preload: ['python', 'javascript']
     }
   },
-  extends: '@nuxt-themes/typography',
+  extends: ['@nuxt-themes/typography'],
   experimental: {
     payloadExtraction: false
   },
