@@ -23,5 +23,12 @@ export default defineNuxtConfig({
   extends: '@nuxt-themes/typography',
   experimental: {
     payloadExtraction: false
+  },
+  routeRules: {
+    // prerendered pages
+    '/': { prerender: true },
+    '/blog/**': { prerender: true },
+    '/tags/**': { prerender: true }, // defaults
+    '/**': { cache: { swr: true, maxAge: 120, staleMaxAge: 60, headersOnly: true }, prerender: false }
   }
 });
