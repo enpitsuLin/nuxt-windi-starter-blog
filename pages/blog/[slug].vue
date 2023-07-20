@@ -1,21 +1,22 @@
 <script setup lang="ts">
-  const route = useRoute();
-  const slug = route.params.slug as string;
+const route = useRoute()
+const slug = route.params.slug as string
 
-  const { data } = await useAsyncData(`blog:${slug}`, () => getPost(slug));
-  if (!data.value) {
-    throw createError({ statusCode: 404, statusMessage: 'Page Not Found' });
-  }
-  const { data: latestPost } = await useAsyncData('home', () => getPosts({ limit: 5 }));
-  const { data: surroundData } = await useAsyncData(() => getSurround(slug));
+const { data } = await useAsyncData(`blog:${slug}`, () => getPost(slug))
+if (!data.value)
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  const format = (date: string) => {
-    return new Date(date).toLocaleDateString('en-US', options);
-  };
-  const prev = computed(() => surroundData.value?.prev);
-  const next = computed(() => surroundData.value?.next);
+const { data: latestPost } = await useAsyncData('home', () => getPosts({ limit: 5 }))
+const { data: surroundData } = await useAsyncData(() => getSurround(slug))
+
+const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
+function format(date: string) {
+  return new Date(date).toLocaleDateString('en-US', options)
+}
+const prev = computed(() => surroundData.value?.prev)
+const next = computed(() => surroundData.value?.next)
 </script>
+
 <template>
   <template v-if="data">
     <SEO :title="data.title ?? ''" :description="data.description" />
@@ -27,7 +28,7 @@
               <h2>Tags</h2>
             </span>
             <div role="listbox" class="p-1 flex flex-wrap">
-              <div role="listitem" v-for="tag in data.tags">
+              <div v-for="tag in data.tags" :key="tag" role="listitem">
                 <Tag :tag="tag" />
               </div>
             </div>
@@ -37,7 +38,7 @@
               <h2>Latest Post</h2>
             </span>
             <ul class="p-1 divide-y divide-dashed divide-gray-500">
-              <li v-for="item in latestPost" class="py-2">
+              <li v-for="item in latestPost" :key="item._id" class="py-2">
                 <NuxtLink
                   :to="`/blog/${item.slug}`"
                   class="text-sm text-gray-500 block lg:pr-3 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-50"
@@ -48,7 +49,7 @@
               </li>
             </ul>
           </div>
-          <ProseToc v-if="data.body.toc.links.length > 0" :links="data.body.toc.links" />
+          <ProseToc v-if="data.body.toc?.links.length" :links="data.body.toc!.links" />
         </div>
         <article class="col-span-10 docs-page lg:col-span-9">
           <div class="xl-divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
@@ -56,7 +57,9 @@
               <div class="space-y-2 text-center">
                 <dl>
                   <div>
-                    <dt class="sr-only">Published on</dt>
+                    <dt class="sr-only">
+                      Published on
+                    </dt>
                     <dd class="font-medium text-base text-gray-500 leading-6 dark:text-gray-400">
                       <time :datetime="data.date">{{ format(data.date) }}</time>
                     </dd>
@@ -83,7 +86,9 @@
                 <div class="max-w-none pb-8">
                   <ContentRenderer :value="data" />
                 </div>
-                <div class="py-6 text-gray-700 dark:text-gray-200">Comments</div>
+                <div class="py-6 text-gray-700 dark:text-gray-200">
+                  Comments
+                </div>
               </div>
               <footer>
                 <div
@@ -91,16 +96,24 @@
                 >
                   <div v-if="next || prev" class="flex py-4 justify-between xl:space-y-8 xl:py-8 xl:block">
                     <div v-if="prev">
-                      <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Previous Article</h2>
+                      <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        Previous Article
+                      </h2>
                       <div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                        <NuxtLink :href="`/blog/${prev.slug}`">{{ prev.title }}</NuxtLink>
+                        <NuxtLink :href="`/blog/${prev.slug}`">
+                          {{ prev.title }}
+                        </NuxtLink>
                       </div>
                     </div>
 
                     <div v-if="next">
-                      <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Next Article</h2>
+                      <h2 class="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                        Next Article
+                      </h2>
                       <div class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                        <NuxtLink :href="`/blog/${next.slug}`">{{ next.title }}</NuxtLink>
+                        <NuxtLink :href="`/blog/${next.slug}`">
+                          {{ next.title }}
+                        </NuxtLink>
                       </div>
                     </div>
                   </div>

@@ -1,4 +1,4 @@
-///<reference types="unplugin-icons/types/vue"/>
+/// <reference types="unplugin-icons/types/vue"/>
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -7,21 +7,21 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     '@unocss/nuxt',
     '@nuxtjs/google-fonts',
-    ['unplugin-icons/nuxt', { autoInstall: true }]
+    ['unplugin-icons/nuxt', { autoInstall: true }],
   ],
   googleFonts: {
     families: {
-      Inter: true
-    }
+      Inter: true,
+    },
   },
   content: {
     highlight: {
       theme: { default: 'light-plus', dark: 'dark-plus' },
-      preload: ['python', 'javascript']
-    }
+      preload: ['python', 'javascript'],
+    },
   },
   extends: '@nuxt-themes/typography',
   experimental: {
-    payloadExtraction: false
-  }
-});
+    payloadExtraction: false,
+  },
+})

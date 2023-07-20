@@ -1,13 +1,14 @@
 <script lang="ts" setup>
-  useHead({
-    bodyAttrs: {
-      class: 'bg-white scrollbars text-black antialiased dark:bg-[#0C0C0D] dark:text-white'
-    },
-    htmlAttrs: {
-      class: 'scrollbars'
-    }
-  });
+useHead({
+  bodyAttrs: {
+    class: 'bg-white scrollbars text-black antialiased dark:bg-[#0C0C0D] dark:text-white',
+  },
+  htmlAttrs: {
+    class: 'scrollbars',
+  },
+})
 </script>
+
 <template>
   <div class="app">
     <NuxtLoadingIndicator />
@@ -16,6 +17,7 @@
     </NuxtLayout>
   </div>
 </template>
+
 <style>
   .scrollbars ::-webkit-scrollbar {
     @apply bg-transparent h-1.75 w-1.75;

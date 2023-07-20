@@ -1,18 +1,17 @@
 <script lang="ts" setup>
-  import { useToggle, breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { breakpointsTailwind, useBreakpoints, useToggle } from '@vueuse/core'
 
-  const breakpoints = useBreakpoints(breakpointsTailwind);
+const breakpoints = useBreakpoints(breakpointsTailwind)
 
-  const hidden = breakpoints.greaterOrEqual('lg');
-  const [show, toggleShowRaw] = useToggle(false);
-  const toggleShow = (value?: boolean) => {
-    toggleShowRaw(value);
-    if (value) {
-      document.documentElement.classList.add('overflow-hidden');
-    } else {
-      document.documentElement.classList.remove('overflow-hidden');
-    }
-  };
+const hidden = breakpoints.greaterOrEqual('lg')
+const [show, toggleShowRaw] = useToggle(false)
+function toggleShow(value?: boolean) {
+  toggleShowRaw(value)
+  if (value)
+    document.documentElement.classList.add('overflow-hidden')
+  else
+    document.documentElement.classList.remove('overflow-hidden')
+}
 </script>
 
 <template>
@@ -26,7 +25,7 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M4 6h16M4 12h16M4 18h7"
-        ></path>
+        />
       </svg>
     </button>
     <Teleport to="body">
@@ -47,7 +46,7 @@
                     stroke-linejoin="round"
                     stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h7"
-                  ></path>
+                  />
                 </svg>
               </button>
             </div>
@@ -57,28 +56,36 @@
                 class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="py-4 px-6">Home</div>
+                <div class="py-4 px-6">
+                  Home
+                </div>
               </NuxtLink>
               <NuxtLink
                 to="/blog"
                 class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="py-4 px-6">Blog</div>
+                <div class="py-4 px-6">
+                  Blog
+                </div>
               </NuxtLink>
               <NuxtLink
                 to="/tags"
                 class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="py-4 px-6">Tags</div>
+                <div class="py-4 px-6">
+                  Tags
+                </div>
               </NuxtLink>
               <NuxtLink
                 to="/about"
                 class="cursor-pointer font-bold tracking-widest text-2xl text-gray-900 dark:text-gray-100"
                 @click="toggleShow(false)"
               >
-                <div class="py-4 px-6">About</div>
+                <div class="py-4 px-6">
+                  About
+                </div>
               </NuxtLink>
             </nav>
           </aside>
@@ -87,6 +94,7 @@
     </Teleport>
   </div>
 </template>
+
 <style>
   .nav-fade-enter-active,
   .nav-fade-leave-active {

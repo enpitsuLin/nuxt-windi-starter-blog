@@ -1,24 +1,24 @@
 <script lang="tsx" setup>
-  import { TocLink } from '@nuxt/content/dist/runtime/types';
-  import { useToggle } from '@vueuse/core';
-  import { PropType } from 'vue';
+import type { TocLink } from '@nuxt/content/dist/runtime/types'
+import { useToggle } from '@vueuse/core'
+import type { PropType } from 'vue'
 
-  defineProps<{ links: TocLink[] }>();
+defineProps<{ links: TocLink[] }>()
 
-  const [show, toggleShow] = useToggle(false);
+const [show, toggleShow] = useToggle(false)
 
-  const HeadingList = defineComponent({
-    props: { links: { type: Object as PropType<TocLink[]> } },
-    render() {
-      return (
+const HeadingList = defineComponent({
+  props: { links: { type: Object as PropType<TocLink[]> } },
+  render() {
+    return (
         <ul class="px-1">
-          {this.links?.map((link) => (
+          {this.links?.map(link => (
             <li class={['min-w-0 group', link.depth > 1 && 'pl-3']}>
               <a
                 href={`#${link.id}`}
                 class="text-sm py-1 text-gray-500 block truncate lg:pr-3 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-50"
                 dynamic-class={[
-                  false && 'font-semibold text-sm py-1 text-green-500 block truncate lg:pr-3 dark:text-green-400'
+                  false && 'font-semibold text-sm py-1 text-green-500 block truncate lg:pr-3 dark:text-green-400',
                 ]}
               >
                 {link.text}
@@ -27,9 +27,9 @@
             </li>
           ))}
         </ul>
-      );
-    }
-  });
+    )
+  },
+})
 </script>
 
 <template>
@@ -53,7 +53,7 @@
           <path
             fill="currentColor"
             d="M15.54 11.29L9.88 5.64a1 1 0 0 0-1.42 0a1 1 0 0 0 0 1.41l4.95 5L8.46 17a1 1 0 0 0 0 1.41a1 1 0 0 0 .71.3a1 1 0 0 0 .71-.3l5.66-5.65a1 1 0 0 0 0-1.47Z"
-          ></path>
+          />
         </svg>
       </button>
       <nav

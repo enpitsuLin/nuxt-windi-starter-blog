@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-  import { PostContent } from '~/utils/post-content';
+import type { PostContent } from '~/utils/post-content'
 
-  const props = withDefaults(defineProps<{ post: PostContent; reverse?: boolean }>(), { reverse: false });
+const props = withDefaults(defineProps<{ post: PostContent; reverse?: boolean }>(), { reverse: false })
 
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  const format = (date: string) => {
-    return new Date(date).toLocaleDateString('en-US', options);
-  };
+const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
+function format(date: string) {
+  return new Date(date).toLocaleDateString('en-US', options)
+}
 </script>
 
 <template>
@@ -27,7 +27,9 @@
     <div class="m-3 w-full lg:w-5/7">
       <div class="mb-1 px-4">
         <dl>
-          <dt class="sr-only">Publish on</dt>
+          <dt class="sr-only">
+            Publish on
+          </dt>
           <dd class="font-medium mr-2 text-sm text-gray-500 dark:text-cloud-light">
             <time :datetime="post.date">
               {{ post.date ? format(post.date) : '' }}
@@ -41,7 +43,7 @@
             {{ post.title }}
           </h1>
           <div class="flex-wrap z-20 inline-flex relative">
-            <Tag v-for="tag in post.tags" :tag="tag" />
+            <Tag v-for="tag in post.tags" :key="tag" :tag="tag" />
           </div>
         </div>
         <p class="pb-4 text-gray-500 truncate sm:whitespace-normal dark:text-cloud-lighter">

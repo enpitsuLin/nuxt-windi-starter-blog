@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  const app = useAppConfig();
-  const route = useRoute();
+const app = useAppConfig()
+const route = useRoute()
 
-  const { data } = await useAsyncData('tag', () =>
-    getPosts({ where: { tags: { $contains: [route.params.tag as string] } } })
-  );
+const { data } = await useAsyncData('tag', () =>
+  getPosts({ where: { tags: { $contains: [route.params.tag as string] } } }),
+)
 </script>
+
 <template>
   <SEO :title="`${route.params.tag} - ${app.author}`" :description="app.description" />
   <div>
@@ -19,7 +20,7 @@
     </div>
   </div>
   <ul class="space-y-4">
-    <li v-for="(content, index) in data">
+    <li v-for="(content, index) in data" :key="content._id">
       <PostCard :post="content" :reverse="index % 2 === 1" />
     </li>
   </ul>

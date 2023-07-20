@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  const app = useAppConfig();
-  const NavLink = defineNuxtLink({
-    componentName: 'NavLink',
-    exactActiveClass: '',
-    activeClass: 'active'
-  });
+const app = useAppConfig()
+const NavLink = defineNuxtLink({
+  componentName: 'NavLink',
+  exactActiveClass: '',
+  activeClass: 'active',
+})
 </script>
 
 <template>
@@ -16,8 +16,12 @@
       <div>
         <NuxtLink :aria-label="app.headerTitle" to="/">
           <div class="flex items-center justify-between">
-            <div class="mr-3">N</div>
-            <div class="font-semibold h-6 text-2xl hidden sm:block">{{ app.headerTitle }}</div>
+            <div class="mr-3">
+              N
+            </div>
+            <div class="font-semibold h-6 text-2xl hidden sm:block">
+              {{ app.headerTitle }}
+            </div>
           </div>
         </NuxtLink>
       </div>

@@ -1,20 +1,21 @@
 <script lang="ts" setup>
-  import FaEnvelope from '~icons/fa/envelope';
-  import FaFacebook from '~icons/fa/facebook';
-  import FaGithub from '~icons/fa/github';
-  import FaLinkedin from '~icons/fa/linkedin';
-  import FaTwitter from '~icons/fa/twitter';
-  import FaYoutube from '~icons/fa/youtube';
-  export type SocialType = 'facebook' | 'github' | 'mail' | 'youtube' | 'linkedin' | 'twitter';
-  defineProps<{ type: SocialType; href: string }>();
-  const components: Record<SocialType, typeof FaEnvelope> = {
-    mail: FaEnvelope,
-    github: FaGithub,
-    facebook: FaFacebook,
-    youtube: FaYoutube,
-    twitter: FaTwitter,
-    linkedin: FaLinkedin
-  };
+import FaEnvelope from '~icons/fa/envelope'
+import FaFacebook from '~icons/fa/facebook'
+import FaGithub from '~icons/fa/github'
+import FaLinkedin from '~icons/fa/linkedin'
+import FaTwitter from '~icons/fa/twitter'
+import FaYoutube from '~icons/fa/youtube'
+
+export type SocialType = 'facebook' | 'github' | 'mail' | 'youtube' | 'linkedin' | 'twitter'
+defineProps<{ type: SocialType; href: string }>()
+const components: Record<SocialType, typeof FaEnvelope> = {
+  mail: FaEnvelope,
+  github: FaGithub,
+  facebook: FaFacebook,
+  youtube: FaYoutube,
+  twitter: FaTwitter,
+  linkedin: FaLinkedin,
+}
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  const { total, current } = defineProps<{ total: number; current: number }>();
-  const hasPrev = current - 1 > 0;
-  const hasNext = current + 1 <= total;
+const { total, current } = defineProps<{ total: number; current: number }>()
+const hasPrev = current - 1 > 0
+const hasNext = current + 1 <= total
 </script>
 
 <template>
