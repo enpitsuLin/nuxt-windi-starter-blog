@@ -28,7 +28,7 @@ function renderPreviewCanvas(slot: VNode<any, any, any>) {
 </script>
 
 <template>
-  <div class="code-group" :class="activeTabIndex === 0 && 'first-tab'">
+  <div border rounded-md border-secondary-400 overflow-hidden>
     <TabsHeader ref="tabsHeader" v-model:activeTabIndex="activeTabIndex" :tabs="tabs" />
     <div class="code-group-content">
       <div
@@ -48,18 +48,3 @@ function renderPreviewCanvas(slot: VNode<any, any, any>) {
     </div>
   </div>
 </template>
-
-<style>
-  .code-group {
-    @apply border rounded-md border-secondary-400 overflow-hidden;
-  }
-  .code-group .prose-code {
-    @apply border-none rounded-none m-0;
-  }
-  .code-group .filename {
-    @apply hidden;
-  }
-  .preview-canvas {
-    @apply p-4;
-  }
-</style>

@@ -1,10 +1,11 @@
 <template>
   <Header />
   <div
-    class="flex flex-col mx-auto max-w-7xl opacity-100 px-4 transition translate-y-0 duration-700 relative sm:px-6 lg:px-8"
+    flex="~ col" mxa max-w-6xl relative p="x4 sm:x6 lg:x8"
+    class="opacity-100  transition translate-y-0 duration-700"
   >
-    <div class="flex flex-col min-h-screen">
-      <main class="mb-auto">
+    <div flex="~ col" min-h-screen>
+      <main mb-auto>
         <slot />
       </main>
       <Footer />

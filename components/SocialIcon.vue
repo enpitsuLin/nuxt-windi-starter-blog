@@ -1,20 +1,13 @@
 <script lang="ts" setup>
-import FaEnvelope from '~icons/fa/envelope'
-import FaFacebook from '~icons/fa/facebook'
-import FaGithub from '~icons/fa/github'
-import FaLinkedin from '~icons/fa/linkedin'
-import FaTwitter from '~icons/fa/twitter'
-import FaYoutube from '~icons/fa/youtube'
-
 export type SocialType = 'facebook' | 'github' | 'mail' | 'youtube' | 'linkedin' | 'twitter'
 defineProps<{ type: SocialType; href: string }>()
-const components: Record<SocialType, typeof FaEnvelope> = {
-  mail: FaEnvelope,
-  github: FaGithub,
-  facebook: FaFacebook,
-  youtube: FaYoutube,
-  twitter: FaTwitter,
-  linkedin: FaLinkedin,
+const icons: Record<SocialType, string> = {
+  mail: 'i-fa:envelope',
+  github: 'i-fa:github',
+  facebook: 'i-fa:facebook',
+  youtube: 'i-fa:youtube',
+  twitter: 'i-fa:twitter',
+  linkedin: 'i-fa:linkedin',
 }
 </script>
 
@@ -26,9 +19,9 @@ const components: Record<SocialType, typeof FaEnvelope> = {
     rel="noopener noreferrer"
   >
     <span class="sr-only">{{ type }}</span>
-    <component
-      :is="components[type]"
-      class="h-6 fill-current text-gray-700 w-6 dark:text-gray-200 hover:text-green-400"
+    <div
+      :class="icons[type]" h-6 w-6
+      text="gray-700 dark:gray-200 hover:green-400"
     />
   </a>
 </template>

@@ -83,7 +83,7 @@ const next = computed(() => surroundData.value?.next)
             </header>
             <div class="divide-y divide-gray-200 pb-8 xl:divide-y-0 dark:divide-gray-700">
               <div class="divide-y divide-gray-200 xl:pb-0 dark:divide-gray-700">
-                <div class="max-w-none pb-8">
+                <div class="pb-8 prose max-w-unset">
                   <ContentRenderer :value="data" />
                 </div>
                 <div class="py-6 text-gray-700 dark:text-gray-200">

@@ -1,0 +1,19 @@
+.scrollbars ::-webkit-scrollbar {
+  --at-apply: bg-transparent h-1.75 w-1.75;
+}
+
+.scrollbars ::-webkit-scrollbar-thumb {
+  --at-apply: rounded-1px bg-gray-400 hover:bg-gray-300;
+}
+
+.scrollbars ::-webkit-scrollbar-track {
+  --at-apply: bg-gray-100;
+}
+
+.dark.scrollbars ::-webkit-scrollbar-thumb {
+  --at-apply: bg-gray-700 hover:bg-gray-600;
+}
+
+.dark.scrollbars ::-webkit-scrollbar-track {
+  --at-apply: bg-gray-800;
+}

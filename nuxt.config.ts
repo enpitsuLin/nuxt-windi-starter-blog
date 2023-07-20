@@ -1,13 +1,14 @@
-/// <reference types="unplugin-icons/types/vue"/>
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/image-edge',
     '@unocss/nuxt',
     '@nuxtjs/google-fonts',
-    ['unplugin-icons/nuxt', { autoInstall: true }],
+  ],
+  css: [
+    '@unocss/reset/tailwind.css',
+    '~/styles/base.css',
+    '~/styles/scrollbars.css',
   ],
   googleFonts: {
     families: {
@@ -20,7 +21,6 @@ export default defineNuxtConfig({
       preload: ['python', 'javascript'],
     },
   },
-  extends: '@nuxt-themes/typography',
   experimental: {
     payloadExtraction: false,
   },

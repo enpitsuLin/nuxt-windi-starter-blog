@@ -1,6 +1,6 @@
 import {
   defineConfig,
-  mergeDeep, presetAttributify, presetIcons,
+  mergeDeep, presetAttributify, presetIcons, presetTypography,
   presetUno, transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
@@ -73,6 +73,6 @@ export default defineConfig({
       })
     },
   ],
-  presets: [presetUno(), presetAttributify(), presetIcons()],
+  presets: [presetUno(), presetAttributify(), presetIcons(), presetTypography()],
   transformers: [transformerVariantGroup(), transformerDirectives()],
 })
