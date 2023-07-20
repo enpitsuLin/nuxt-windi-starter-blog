@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/image-edge',
-    'nuxt-windicss',
+    '@unocss/nuxt',
     '@nuxtjs/google-fonts',
     ['unplugin-icons/nuxt', { autoInstall: true }]
   ],
